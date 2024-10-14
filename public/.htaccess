@@ -1,0 +1,12 @@
+# public/.htaccess
+
+Options -Indexes
+RewriteEngine On
+RewriteBase /diary/public/
+
+# Sprawdzanie, czy żądanie dotyczy istniejącego pliku lub katalogu
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Jeśli nie jest to plik ani katalog, przekieruj do index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

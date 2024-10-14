@@ -1,0 +1,41 @@
+/* Ogólne ustawienia body */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pozwala sekcji zająć przestrzeń pomiędzy nagłówkiem a stopką */
+    min-height: 100vh; /* Ustawienie minimalnej wysokości na 100% widocznej wysokości ekranu */
+}
+
+/* Oś czasu w centrum */
+#visualization {
+    width: 100%;
+    max-height: 80%;
+    margin: 0 auto;
+    background-color: white;
+}
+
+/* Upewnij się, że wszystko pasuje do ekranu */
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.vis-foreground .vis-group{
+    height: 41px;
+}
+
+.filterConteiner{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,82 @@
+/* Stylizacja burger menu */
+.burger-menu {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1;
+    color: white;
+}
+
+/* Stylizacja dla sidebar (menu boczne) */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    background-color: #4CAF50;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    text-wrap: nowrap;
+}
+
+.sidebar a:hover {
+    background-color: #45a049;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+}
+
+/* Stylizacja dla głównej zawartości */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+section {
+    margin: 20px;
+}
+
+.home-link {
+    text-decoration: none;  
+    color: inherit;          
+    cursor: pointer;         
+
+}
+
+.home-link:focus, 
+.home-link:hover, 
+.home-link:active {
+    outline: none;
+    color: inherit;
+}
