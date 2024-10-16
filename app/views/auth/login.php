@@ -1,5 +1,3 @@
-<!-- app/views/auth/login.php -->
-
 <!DOCTYPE html>
 <html lang="pl">
     <head>
@@ -8,7 +6,7 @@
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/styles.css">
     </head>
 
-    <?php include_once '../app/views/common/header.php'; ?>
+    <?php include_once './app/views/common/header.php'; ?>
 
     <body>
         <section>
@@ -29,6 +27,6 @@
 
             <a href="<?php echo BASE_URL; ?>auth/register">Nie masz konta? Zarejestruj się</a>
         </section>
-        <?php include_once '../app/views/common/footer.php'; ?>
+        <?php include_once './app/views/common/footer.php'; ?>
     </body>
 </html>

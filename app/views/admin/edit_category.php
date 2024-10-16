@@ -1,15 +1,12 @@
-<!-- app/views/admin/edit_category.php -->
-
 <!DOCTYPE html>
 <html lang="pl">
     <head>
         <meta charset="UTF-8">
         <title>Edytuj Kategorię</title>
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/styles.css">
-        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/admin.css">
     </head>
 
-    <?php include_once '../app/views/common/header.php'; ?>
+    <?php include_once './app/views/common/header.php'; ?>
 
     <body>
         <section>
@@ -22,6 +19,6 @@
             </form>
         </section>
 
-        <?php include_once '../app/views/common/footer.php'; ?>
+        <?php include_once './app/views/common/footer.php'; ?>
     </body>
 </html>

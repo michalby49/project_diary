@@ -1,12 +1,10 @@
-/* Ogólne ustawienia body */
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pozwala sekcji zająć przestrzeń pomiędzy nagłówkiem a stopką */
-    min-height: 100vh; /* Ustawienie minimalnej wysokości na 100% widocznej wysokości ekranu */
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
-/* Oś czasu w centrum */
 #visualization {
     width: 100%;
     max-height: 80%;
@@ -14,7 +12,6 @@ body {
     background-color: white;
 }
 
-/* Upewnij się, że wszystko pasuje do ekranu */
 body, html {
     height: 100%;
     display: flex;

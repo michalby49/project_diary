@@ -1,4 +1,3 @@
-/* Stylizacja burger menu */
 .burger-menu {
     position: fixed;
     top: 10px;
@@ -9,7 +8,6 @@
     color: white;
 }
 
-/* Stylizacja dla sidebar (menu boczne) */
 .sidebar {
     height: 100%;
     width: 0;
@@ -44,7 +42,6 @@
     font-size: 36px;
 }
 
-/* Stylizacja dla głównej zawartości */
 header {
     background-color: #4CAF50;
     color: white;

@@ -15,10 +15,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/pl.min.js"></script>
     </head>
 
-    <?php include_once '../app/views/common/header.php'; ?>
+    <?php include_once './app/views/common/header.php'; ?>
 
-    <body>
-        
+    <body>   
         <section>
             <div class="filterConteiner">
                 <div>
@@ -46,7 +45,7 @@
             <div id="visualization"></div>
         </section>
 
-        <?php include_once '../app/views/common/footer.php'; ?>
+        <?php include_once './app/views/common/footer.php'; ?>
     
         <script>
             moment.locale('pl');
@@ -65,18 +64,16 @@
                 <?php endforeach; ?>
             ]);
 
-            // Tworzymy grupy użytkowników
             var groups = new vis.DataSet([
                 <?php 
-                // Używamy tablicy do śledzenia już dodanych użytkowników
                 $seenUsers = [];
                 foreach ($data['events'] as $event): 
                     if (!in_array($event['user_id'], $seenUsers)): 
                         $seenUsers[] = $event['user_id']; 
                 ?>
                     {
-                        id: '<?php echo addslashes($event['user_id']); ?>', // Nazwa użytkownika jako id grupy
-                        content: '<?php echo addslashes($event['user_name']); ?>' // Wyświetlana nazwa użytkownika
+                        id: '<?php echo addslashes($event['user_id']); ?>',
+                        content: '<?php echo addslashes($event['user_name']); ?>'
                     },
                 <?php 
                     endif;
@@ -84,22 +81,20 @@
                 ?>
             ]);
 
-            // Opcje dla osi czasu
             var options = {
-                stack: false,  // Umożliwia wydarzeniom na nakładanie się pionowo
+                stack: false,
                 start: new Date(Date.now() - 1000 * 60 * 60 * 24 * 30),
                 end: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-                editable: false,  // Oś czasu jest tylko do odczytu
-                zoomMin: 1000 * 60 * 60 * 24 * 30, // Minimum przybliżenia: 1 miesiąc
-                zoomMax: 1000 * 60 * 60 * 24 * 365 * 10, // Maksymalne oddalenie: 10 lat
-                horizontalScroll: true, // Pozwala na przewijanie poziome (skrolowanie)
-                zoomKey: 'ctrlKey',  // Przybliżanie/oddalanie możliwe za pomocą klawisza Ctrl i przewijania
-                maxHeight: 400,  // Maksymalna wysokość osi czasu
-                groupOrder: 'content', // Sortowanie grup według nazwy
-                moveable: true,  // Pozwala na przeciąganie osi czasu
+                editable: false,
+                zoomMin: 1000 * 60 * 60 * 24 * 30,
+                zoomMax: 1000 * 60 * 60 * 24 * 365 * 10,
+                horizontalScroll: true,
+                zoomKey: 'ctrlKey',
+                maxHeight: 400,
+                groupOrder: 'content',
+                moveable: true,
             };
 
-            // Inicjalizacja osi czasu z grupami
             var container = document.getElementById('visualization');
             var timeline = new vis.Timeline(container, items, groups, options);
 
@@ -114,17 +109,24 @@
             function filterEventsByUser() {
                 var selectedUser = document.getElementById("userFilter").value;
 
-                // Jeśli wybrano "Wszyscy użytkownicy", pokaż wszystkie wydarzenia
                 if (selectedUser === 'all') {
-                    timeline.setItems(items); // Pokaż wszystkie wydarzenia
+                    timeline.setItems(items);
+                    timeline.setGroups(groups);
                 } else {
-                    // Filtrowanie wydarzeń dla wybranego użytkownika
                     var filteredItems = items.get({
                         filter: function (item) {
-                            return String(item.group) === selectedUser; // Porównujemy user_id z wybraną wartością
+                            return String(item.group) === selectedUser;
                         }
                     });
-                    timeline.setItems(filteredItems); // Ustaw filtrowane wydarzenia
+
+                    var filteredGroups = groups.get({
+                        filter: function (group) {
+                            return String(group.id) === selectedUser;
+                        }
+                    });
+
+                    timeline.setItems(filteredItems);
+                    timeline.setGroups(filteredGroups);
                 }
             }
 

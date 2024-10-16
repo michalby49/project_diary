@@ -1,4 +1,3 @@
-/* Ogólne ustawienia body */
 html, body {
     height: 100%;
     margin: 0;
@@ -54,14 +53,20 @@ button:hover {
     background-color: #45a049;
 }
 
-table {
-    width: 90%;
-    margin: 20px auto;
+.table-container {
+    height: 80%;
+    width: 100%;
+    overflow-x: auto;
     border-collapse: collapse;
     background-color: white;
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-radius: 8px;
+    border-collapse: collapse;
 }
 
 table thead {
@@ -108,4 +113,14 @@ select {
 
 textarea{
     resize: none;
+}
+
+form {
+    margin: 20px auto;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
